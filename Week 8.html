@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <title>Final plus project prep</title>
+  </head>
+  <body>
+    <div class="Weather-app">
+      <header>
+        <form class="search-form" id="search-form">
+          <input
+            type="search"
+            placeholder="Enter a city..."
+            required
+            class="search-form-input"
+            id="search-form-input"
+          />
+          <input type="submit" value="search" class="search-form-button" />
+        </form>
+      </header>
+      <main>
+        <div class="Weather-app-data">
+          <div>
+            <h1 class="Weather-app-city" id="city"></h1>
+            <p class="Weather-app-details">
+              <span id="time"></span>
+              <span id="description"></span>
+              <br />
+              Wind: <strong id="wind-speed"></strong>
+              <br />
+              Rain probability:<strong id="humidity"></strong>
+            </p>
+          </div>
+          <div class="Weather-app-temperature-container">
+            <div id="icon"></div>
+            <div class="Weather-app-temperature-value" id="temperature"></div>
+            <div class="Weather-app-unit">&deg;C</div>
+          </div>
+        </div>
+      </main>
+      <footer>
+        Coded by
+        <a href="https://github.com/DemureSiwe" target="_blank">
+          Busisiwe Tsetsetng
+        </a>
+        is open sourced on
+        <a
+          href="https://github.com/DemureSiwe/Final-plus-project.git"
+          target="_blank"
+        >
+          GitHub</a
+        >
+        and hosted on
+        <a
+          href="https://busisiwes-vanilla-weather-project.netlify.app"
+          target="_blank"
+        >
+          Netlify
+        </a>
+      </footer>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
