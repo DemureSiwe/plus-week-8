@@ -15,8 +15,9 @@ function refreshWeather(response) {
   descriptionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   windspeedElement.innerHTML = `${response.data.wind.speed} km/h`;
-  timeElement.innerHTML = response.data.condition.description;
   temperatureElement.innerHTML = Math.round(temperature);
+
+  getForecast(response.data.city);
 }
 
 function formatDate(date) {
@@ -38,7 +39,6 @@ function formatDate(date) {
 
   return `${day} ${hours}:${minutes}`;
 }
-// date and time doesn't appear on my app
 
 function searchCity(city) {
   let apiKey = "24ao33ccbd25f045000ce8tbae8037df";
@@ -53,7 +53,15 @@ function handleSearchSubmit(event) {
   searchCity(searchInput.value);
 }
 
-function displayForecast() {
+function getForecast(city) {
+  let apiKey = "24ao33ccbd25f045000ce8tbae8037df";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response.data);
+
   let days = ["Tue", "Wed", "Thu", "Fri", "sat"];
   let forecastHtml = "";
 
@@ -66,7 +74,7 @@ function displayForecast() {
         <div class="weather-forecast-icon">🌤️</div>
         <div class="weather-forecast-temperatures">
           <div class="weather-forecast-temperature">
-            <strong>15º</strong>
+            <strong>${day.temperature.minimum}º</strong>
           </div>
           <div class="weather-forecast-temperature">9º</div>
         </div>
@@ -82,4 +90,3 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Cape Town");
-displayForecast();
